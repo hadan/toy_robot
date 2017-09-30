@@ -47,7 +47,7 @@ class Robot
 
     def place(x, y, f)
         
-        if x > TABLE_W or y > TABLE_H
+        if x.to_i > TABLE_W or y.to_i > TABLE_H
             raise RuntimeError, "Can not input value more than 5 because table size is 5 unit x 5 unit"
         end
         
