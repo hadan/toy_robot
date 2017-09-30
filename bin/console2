@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "toy_robot"
+
+
+
+puts "Run the command here"
+robot1 = Robot.new
+
+while (u_input = STDIN.gets.chomp) != 'exit'
+    
+    case u_input
+    when
+    /^place\s(?<param_x>\d),(\s)*(?<param_y>\d),(\s)*(?<direction>\w+)$/
+        robot1.place($~['param_x'], $~['param_y'],$~['direction'])
+    when 'move'
+        robot1.move
+    when 'left'
+        robot1.left
+    when 'right'
+        robot1.right
+        
+    when 'report'
+        puts robot1.report
+    else
+        puts "Allowed command:\nplace\nmove\nleft\nright\nreport\nexit"
+    end
+end
